@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ReservationService.Common\ReservationService.Common.csproj" />
+  </ItemGroup>
+
 </Project>
