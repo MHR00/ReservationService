@@ -1,26 +1,36 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
+using ReservationService.Common;
 using ReservationService.Data.DbAccess;
 using ReservationService.Services.JWT;
+using ReservationService.Services.LocationSevices.Commands.AddLocation;
+using ReservationService.Services.LocationSevices.Commands.DeleteLocation;
+using ReservationService.Services.LocationSevices.Commands.EditLocation;
 using ReservationService.Services.UserServices.LoginUser;
 using ReservationService.Services.UserServices.RegisterUser;
 using ReservationService.WebFremework.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 builder.Services.AddSingleton<SqlDataAccess>();
 builder.Services.AddSingleton<ILoginUserService, LoginUserService>();
 builder.Services.AddSingleton<IRegisterUserService, RegisterUserService>();
-builder.Services.AddSingleton<IJwtService, JwtService>();
+builder.Services.AddSingleton<IAddLocationService, AddLocationService>();
+builder.Services.AddSingleton<IEditLocationService, EditLocationService>();
+builder.Services.AddSingleton<IDeleteLocationService, DeleteLocationService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddJwtAuthentication();
 //AddAuthorization
-builder.Services.AddAuthorization(options =>
-{
-    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
-});
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+//        .RequireAuthenticatedUser()
+//        .Build();
+//});
+
+builder.Services.Configure<SiteSettings>(builder.Configuration.GetSection(nameof(SiteSettings)));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -70,3 +80,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+public partial class Program {
+    private readonly SiteSettings _siteSetting;
+    static string ConnectionString = @"Data Source=.;Initial Catalog=ReservationServiceDB;Integrated Security=true";
+}

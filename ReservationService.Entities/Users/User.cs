@@ -8,11 +8,11 @@ namespace ReservationService.Entities.Users
 {
     public class User
     {
-        public int Id { get; set; }
+      
         public string UserName { get; set; }
         public string Password { get; set; }
         public string MobileNumber { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime RegisterTime { get; set; }
+        public bool IsActive { get; set; } = true;
+        public DateTime RegisterTime { get; set; } = DateTime.Now;
     }
 }

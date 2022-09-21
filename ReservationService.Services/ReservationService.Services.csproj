@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Dapper.FastCrud" Version="3.0.46" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.9" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.23.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
   </ItemGroup>
 
@@ -17,6 +19,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ReservationService.Data\ReservationService.Data.csproj" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Folder Include="LocationSevices\Queries\" />
   </ItemGroup>
 
 </Project>

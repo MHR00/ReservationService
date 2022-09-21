@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReservationService.Common.Utilities;
+using ReservationService.Entities.Customers;
 using ReservationService.Entities.Users;
 using ReservationService.Services.JWT;
 using ReservationService.Services.UserServices.LoginUser;
@@ -42,6 +43,24 @@ namespace ReservationService.API.Controllers
               
             }
             catch (Exception ex)
+            {
+
+                return Results.Problem(ex.Message);
+            }
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IResult> InsertCoustomer(Customer customer)
+        {
+            try
+            {
+                
+                    await _registerUserService.InsertCustomer(customer);
+                    return Results.Ok();
+                
+               
+            }
+            catch (Exception ex )
             {
 
                 return Results.Problem(ex.Message);
