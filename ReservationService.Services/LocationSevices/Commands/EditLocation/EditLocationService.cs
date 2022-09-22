@@ -28,7 +28,8 @@ namespace ReservationService.Services.LocationSevices.Commands.EditLocation
                     Id = location.Id,
                     Name = location.Name,
                     LocationType = location.LocationType,
-                    GeographicalLocation = location.GeographicalLocation
+                    GeographicalLocation = location.GeographicalLocation,
+                    Price = location.Price
                 };
                 await connection.UpdateAsync<Location>(locations);
             }

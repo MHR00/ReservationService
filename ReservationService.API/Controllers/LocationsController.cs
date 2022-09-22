@@ -4,6 +4,8 @@ using ReservationService.Entities.Locations;
 using ReservationService.Services.LocationSevices.Commands.AddLocation;
 using ReservationService.Services.LocationSevices.Commands.DeleteLocation;
 using ReservationService.Services.LocationSevices.Commands.EditLocation;
+using ReservationService.Services.LocationSevices.Queries.SearchLocation;
+using ReservationService.Services.LocationSevices.Queries.ShowLocation;
 
 namespace ReservationService.API.Controllers
 {
@@ -14,14 +16,20 @@ namespace ReservationService.API.Controllers
         private readonly IAddLocationService _addLocationService;
         private readonly IEditLocationService _editLocationService;
         private readonly IDeleteLocationService _deleteLocationService;
+        private readonly IShowLocationService _showLocationService;
+        private readonly ISearchLocationService _searchLocationService;
 
         public LocationsController(IAddLocationService addLocationService,
             IEditLocationService editLocationService,
-            IDeleteLocationService deleteLocationService)
+            IDeleteLocationService deleteLocationService,
+            IShowLocationService showLocationService,
+            ISearchLocationService searchLocationService)
         {
             _addLocationService = addLocationService;
             _editLocationService = editLocationService;
             _deleteLocationService = deleteLocationService;
+            _showLocationService = showLocationService;
+            _searchLocationService = searchLocationService;
         }
 
         [HttpPost("[action]")]
@@ -61,6 +69,36 @@ namespace ReservationService.API.Controllers
             {
                 await _deleteLocationService.DeleteLocation(id);
                 return Results.Ok("مکان مورد نظر با موفعیت حذف گردید");
+            }
+            catch (Exception ex)
+            {
+
+                return Results.Problem(ex.Message);
+            }
+        }
+
+        [HttpGet("/LocationList/page")]
+        public async Task<IResult> ShowLocationList([FromQuery] int page)
+        {
+            try
+            {
+                var loctionList = await _showLocationService.LocationList(page);
+                return Results.Ok(loctionList);
+            }
+            catch (Exception ex)
+            {
+
+                return Results.Problem(ex.Message);
+            }
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IResult> SearchInLocation([FromQuery] string name , string type , int page)
+        {
+            try
+            {
+                var results =await _searchLocationService.SearchLocation(name, type, page);
+                return Results.Ok(results);
             }
             catch (Exception ex)
             {

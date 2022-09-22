@@ -16,6 +16,7 @@ namespace ReservationService.Entities.Places
         public string Name { get; set; }
         public string LocationType { get; set; }
         public string GeographicalLocation { get; set; }
+        public decimal Price { get; set; }
         public DateTime RegisterTime { get; set; }= DateTime.Now;
 
     }

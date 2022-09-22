@@ -30,6 +30,7 @@ namespace ReservationService.Services.LocationSevices.Commands.AddLocation
                     Name = location.Name,
                     LocationType = location.LocationType,
                     GeographicalLocation = location.GeographicalLocation,
+                    Price = location.Price
                 };
                 await connection.InsertAsync(locations);
             }

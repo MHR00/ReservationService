@@ -12,5 +12,6 @@ namespace ReservationService.Entities.Locations
         public string Name { get; set; }
         public string LocationType { get; set; }
         public string GeographicalLocation { get; set; }
+        public decimal Price { get; set; }
     }
 }
