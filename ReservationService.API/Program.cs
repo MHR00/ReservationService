@@ -8,6 +8,7 @@ using ReservationService.Services.LocationSevices.Commands.DeleteLocation;
 using ReservationService.Services.LocationSevices.Commands.EditLocation;
 using ReservationService.Services.LocationSevices.Queries.SearchLocation;
 using ReservationService.Services.LocationSevices.Queries.ShowLocation;
+using ReservationService.Services.ReservationServices;
 using ReservationService.Services.UserServices.LoginUser;
 using ReservationService.Services.UserServices.RegisterUser;
 using ReservationService.WebFremework.Configuration;
@@ -24,6 +25,7 @@ builder.Services.AddSingleton<IEditLocationService, EditLocationService>();
 builder.Services.AddSingleton<IDeleteLocationService, DeleteLocationService>();
 builder.Services.AddSingleton<IShowLocationService, ShowLocationService>();
 builder.Services.AddSingleton<ISearchLocationService, SearchLocationService>();
+builder.Services.AddSingleton<IReservationsService, ReservationsService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddJwtAuthentication();
 //AddAuthorization
