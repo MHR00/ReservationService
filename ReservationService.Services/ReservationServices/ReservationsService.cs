@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
+using ReservationService.Entities.Reservations;
 
 namespace ReservationService.Services.ReservationServices
 {
@@ -18,12 +19,13 @@ namespace ReservationService.Services.ReservationServices
             _context = context;
         }
 
-        public async Task ReservingPlace(int userId, int locationId)
+        public async Task ReservingPlace(ReservingPlaceDto information , int userId)
         {
             var procedure = "spReservations";
             var paremeters = new DynamicParameters();
             paremeters.Add("userId", userId, DbType.Int64, ParameterDirection.Input);
-            paremeters.Add("locationId", locationId, DbType.Int64, ParameterDirection.Input);
+            paremeters.Add("locationId", information.LocationId, DbType.Int64, ParameterDirection.Input);
+            paremeters.Add("reservationDate", information.ReservationDate, DbType.Date, ParameterDirection.Input);
 
             using (var connection = _context.CreateConnection())
             {

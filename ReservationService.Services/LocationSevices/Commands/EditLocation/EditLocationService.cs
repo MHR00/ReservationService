@@ -19,13 +19,13 @@ namespace ReservationService.Services.LocationSevices.Commands.EditLocation
             _context = context;
         }
 
-        public async Task EditLocation(EditLocationDto location)
+        public async Task EditLocation(EditLocationDto location , int locationId)
         {
             using (var connection = _context.CreateConnection())
             {
                 Location locations = new()
                 {
-                    Id = location.Id,
+                    Id = locationId,
                     Name = location.Name,
                     LocationType = location.LocationType,
                     GeographicalLocation = location.GeographicalLocation,

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ReservationService.Common.Utilities;
+using ReservationService.Entities.Reservations;
 using ReservationService.Services.ReservationServices;
 
 namespace ReservationService.API.Controllers
@@ -16,11 +18,12 @@ namespace ReservationService.API.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IResult> ReservingPlace(int userId, int locationId)
+        public async Task<IResult> ReservingPlace(ReservingPlaceDto information)
         {
             try
             {
-                await _reservationsService.ReservingPlace(userId, locationId);
+                var userId = HttpContext.User.Identity.GetUserId<int>();
+                await _reservationsService.ReservingPlace(information , userId);
                 return Results.Ok("مکان مورد نظر با موفقیت رزرو شد");
             }
             catch (Exception ex)

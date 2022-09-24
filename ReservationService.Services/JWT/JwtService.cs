@@ -51,7 +51,7 @@ namespace ReservationService.Services.JWT
         }
 
         private IEnumerable<Claim> _getClaims(ResultUserLoginDto users)
-        {
+            {
             var secutiryStampClaimType = new ClaimsIdentityOptions().SecurityStampClaimType;
             var list = new List<Claim>
             {

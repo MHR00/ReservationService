@@ -1,7 +1,9 @@
-﻿namespace ReservationService.Services.ReservationServices
+﻿using ReservationService.Entities.Reservations;
+
+namespace ReservationService.Services.ReservationServices
 {
     public interface IReservationsService
     {
-        Task ReservingPlace(int userId, int locationId);
+        Task ReservingPlace(ReservingPlaceDto information , int userId );
     }
 }

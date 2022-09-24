@@ -12,6 +12,7 @@ namespace ReservationService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class UserAuthenticationController : ControllerBase
     {
         private readonly ILoginUserService _loginUserService;
@@ -26,7 +27,7 @@ namespace ReservationService.API.Controllers
             _registerUserService = registerUserService;
             _jwtService = jwtService;
         }
-        [AllowAnonymous]
+       
         [HttpPost("[action]")]
         public async Task<IResult> RegisterUser(RegisterUserDto user)
         {
@@ -48,24 +49,7 @@ namespace ReservationService.API.Controllers
                 return Results.Problem(ex.Message);
             }
         }
-        [AllowAnonymous]
-        [HttpPost]
-        public async Task<IResult> InsertCoustomer(Customer customer)
-        {
-            try
-            {
-                
-                    await _registerUserService.InsertCustomer(customer);
-                    return Results.Ok();
-                
-               
-            }
-            catch (Exception ex )
-            {
-
-                return Results.Problem(ex.Message);
-            }
-        }
+        
         [AllowAnonymous]
         [HttpGet("[action]")]
         public async Task<IResult> LoginUser([FromQuery] LoginUserDto user)
@@ -92,10 +76,6 @@ namespace ReservationService.API.Controllers
         }
 
        
-        [HttpGet]
-        public string sayhellowworld()
-        {
-            return "hello world";
-        }
+       
     }
 }

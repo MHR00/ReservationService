@@ -48,11 +48,11 @@ namespace ReservationService.API.Controllers
         }
 
         [HttpPut("[action]")]
-        public async Task<IResult> EditLocation(EditLocationDto location)
+        public async Task<IResult> EditLocation([FromQuery] int locationId ,  EditLocationDto location)
         {
             try
             {
-                await _editLocationService.EditLocation(location);
+                await _editLocationService.EditLocation(location , locationId);
                 return Results.Ok("مکان مورد نظر ویرایش شد ");
             }
             catch (Exception ex)
