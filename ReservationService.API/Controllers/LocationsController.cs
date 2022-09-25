@@ -93,11 +93,11 @@ namespace ReservationService.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IResult> SearchInLocation([FromQuery] string name , string type , int page)
+        public async Task<IResult> SearchInLocation([FromQuery] string name , string type , int page, int size)
         {
             try
             {
-                var results =await _searchLocationService.SearchLocation(name, type, page);
+                var results =await _searchLocationService.SearchLocation(name, type, page,size);
                 return Results.Ok(results);
             }
             catch (Exception ex)

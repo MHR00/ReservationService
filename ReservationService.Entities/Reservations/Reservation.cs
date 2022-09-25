@@ -14,5 +14,6 @@ namespace ReservationService.Entities.Reservations
         public string ReservedPlace { get; set; }
         public decimal Price { get; set; }
         public string Resevatore { get; set; }
+        
     }
 }

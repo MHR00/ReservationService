@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-builder.Services.AddScoped<SqlDataAccess>();
+builder.Services.AddSingleton<SqlDataAccess>();
 builder.Services.AddSingleton<ILoginUserService, LoginUserService>();
 builder.Services.AddSingleton<IRegisterUserService, RegisterUserService>();
 builder.Services.AddSingleton<IAddLocationService, AddLocationService>();
@@ -37,7 +37,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.Configure<SiteSettings>(builder.Configuration.GetSection(nameof(SiteSettings)));
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
@@ -86,7 +86,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-public partial class Program {
-    private readonly SiteSettings _siteSetting;
-    static string ConnectionString = @"Data Source=.;Initial Catalog=ReservationServiceDB;Integrated Security=true";
-}
+public partial class Program { }

@@ -28,6 +28,7 @@ namespace ReservationService.Services.LocationSevices.Commands.AddLocation
                 Location locations = new()
                 {
                     Name = location.Name,
+                    Address = location.Address,
                     LocationType = location.LocationType,
                     GeographicalLocation = location.GeographicalLocation,
                     Price = location.Price

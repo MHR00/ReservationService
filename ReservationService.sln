@@ -9,17 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{FF3113E1-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{2B2F79CD-E007-467B-93CF-094FA8C17434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Common", "ReservationService.Common\ReservationService.Common.csproj", "{26C24C76-BDB0-4CB5-A229-17949696F33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.Common", "ReservationService.Common\ReservationService.Common.csproj", "{26C24C76-BDB0-4CB5-A229-17949696F33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.WebFremework", "ReservationService.WebFremework\ReservationService.WebFremework.csproj", "{4F6E02AA-0458-4025-96A4-531C1552ED12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.WebFremework", "ReservationService.WebFremework\ReservationService.WebFremework.csproj", "{4F6E02AA-0458-4025-96A4-531C1552ED12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Services", "ReservationService.Services\ReservationService.Services.csproj", "{5804A4FF-CE9B-4D30-9693-A2E4DA22F73F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.Services", "ReservationService.Services\ReservationService.Services.csproj", "{5804A4FF-CE9B-4D30-9693-A2E4DA22F73F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Data", "ReservationService.Data\ReservationService.Data.csproj", "{08223E62-6780-4F96-8808-A5F7F4C15DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.Data", "ReservationService.Data\ReservationService.Data.csproj", "{08223E62-6780-4F96-8808-A5F7F4C15DEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.Entities", "ReservationService.Entities\ReservationService.Entities.csproj", "{2688068C-103F-4BE0-BA65-CA6AFC4763BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.Entities", "ReservationService.Entities\ReservationService.Entities.csproj", "{2688068C-103F-4BE0-BA65-CA6AFC4763BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.API", "ReservationService.API\ReservationService.API.csproj", "{68F71D69-C446-4911-9257-37306C7FF617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationService.API", "ReservationService.API\ReservationService.API.csproj", "{68F71D69-C446-4911-9257-37306C7FF617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservationService.IntegrationTests", "ReservationService.IntegrationTests\ReservationService.IntegrationTests.csproj", "{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{68F71D69-C446-4911-9257-37306C7FF617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68F71D69-C446-4911-9257-37306C7FF617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F71D69-C446-4911-9257-37306C7FF617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{08223E62-6780-4F96-8808-A5F7F4C15DEC} = {7F384D4B-4C84-4F80-8C03-B07BC6D7495B}
 		{2688068C-103F-4BE0-BA65-CA6AFC4763BB} = {7F384D4B-4C84-4F80-8C03-B07BC6D7495B}
 		{68F71D69-C446-4911-9257-37306C7FF617} = {7F384D4B-4C84-4F80-8C03-B07BC6D7495B}
+		{FF765432-07FE-4F98-AE27-5FD1ACFA0EB4} = {FF3113E1-9D7C-4098-843E-875316A4390E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50904858-D453-486C-A26C-5DD4356C3DC4}
