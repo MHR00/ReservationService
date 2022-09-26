@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
 using System.Linq;
+using System.Spatial;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,10 +18,18 @@ namespace ReservationService.Entities.Places
         public string Address { get; set; }
         public string LocationType { get; set; }
 
-        public string GeographicalLocation { get; set; }
+        public decimal LatitudesLocation { get; set; }
+        public decimal LongitudesLocation { get; set; }
         public decimal Price { get; set; }
-        public DateTime RegisterTime { get; set; }=DateTime.Now;
-        
+        public DateTime RegisterTime { get; set; } = DateTime.Now;
 
-    }
+
+       
+
+}
+   
+
+    
+
+
 }
