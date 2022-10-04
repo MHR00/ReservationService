@@ -77,7 +77,7 @@ namespace ReservationService.API.Controllers
             }
         }
 
-        [HttpGet("/LocationList/page")]
+        [HttpGet("[action]")]
         public async Task<IResult> ShowLocationList([FromQuery] int page)
         {
             try
