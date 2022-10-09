@@ -29,12 +29,12 @@ builder.Services.AddSingleton<IReservationsService, ReservationsService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddJwtAuthentication();
 //AddAuthorization
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
-//        .RequireAuthenticatedUser()
-//        .Build();
-//});
+builder.Services.AddAuthorization(options =>
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+});
 
 builder.Services.Configure<SiteSettings>(builder.Configuration.GetSection(nameof(SiteSettings)));
 builder.Services.AddControllers();

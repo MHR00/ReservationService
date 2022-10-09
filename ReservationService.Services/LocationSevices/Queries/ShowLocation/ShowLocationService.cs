@@ -20,11 +20,12 @@ namespace ReservationService.Services.LocationSevices.Queries.ShowLocation
         }
 
 
-        public async Task<List<Location>> LocationList(int page)
+        public async Task<List<Location>> LocationList(int page , int pageSize)
         {
             var procedureName = "spShowLocationList";
             var parameters = new DynamicParameters();
             parameters.Add("@PageNumber", page, DbType.Int64, ParameterDirection.Input);
+            parameters.Add("@RowsOfPage", pageSize, DbType.Int64, ParameterDirection.Input);
 
             using (var conneciton = _context.CreateConnection())
             {

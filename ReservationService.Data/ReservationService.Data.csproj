@@ -15,4 +15,8 @@
     <ProjectReference Include="..\ReservationService.Entities\ReservationService.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DatabaseBackup\" />
+  </ItemGroup>
+
 </Project>

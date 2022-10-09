@@ -4,6 +4,6 @@ namespace ReservationService.Services.LocationSevices.Queries.ShowLocation
 {
     public interface IShowLocationService
     {
-        Task<List<Location>> LocationList(int page);
+        Task<List<Location>> LocationList(int page, int pageSize);
     }
 }

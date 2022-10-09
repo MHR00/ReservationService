@@ -78,11 +78,11 @@ namespace ReservationService.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IResult> ShowLocationList([FromQuery] int page)
+        public async Task<IResult> ShowLocationList([FromQuery] int page=1 , int pageSize=4)
         {
             try
             {
-                var loctionList = await _showLocationService.LocationList(page);
+                var loctionList = await _showLocationService.LocationList(page , pageSize);
                 return Results.Ok(loctionList);
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace ReservationService.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IResult> SearchInLocation([FromQuery] string name , string type , int page, int size)
+        public async Task<IResult> SearchInLocation([FromQuery] string? name , string? type , int page=1, int size=4)
         {
             try
             {
